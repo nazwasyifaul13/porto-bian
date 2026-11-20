@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portofolio Bianca - Pelajar Rekayasa Perangkat Lunak SMKN 2 Mojokerto.">
+  <title>Bianca | Personal Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+    --bg: #e6a3bc;
+    --surface: #ffc0ef;
+    --text: #6b2058;  
+    --muted: #832783;
+    --accent: #e88fb5;
+    --soft: #edbeca;
+    --line: #df74a0;
+}
+
+    [data-theme="dark"] {
+      /* DARK MODE — BLUE & BLACK */
+      --bg: #080e1b;
+      --surface: #111c30;
+      --text: #edf4ff;
+      --muted: #9eacc4;
+      --accent: #6da8ff;
+      --soft: #1c3152;
+      --line: #263955;
+    } 
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Manrope', sans-serif;
+      line-height: 1.7;
+      transition: background .3s, color .3s;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .theme-btn {
+      border: 1px solid var(--line);
+      background: var(--soft);
+      color: var(--text);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: 580px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 0;
+    }
+
+    .eyebrow {
+      color: var(--mutted);
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 85px);
+      line-height: 1.08;
+      letter-spacing: -5px;
+      margin: 20px 0;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .btn {
+      padding: 12px 22px;
+      border-radius: 30px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      font-size: 13px;
+      font-weight: 800;
+      display: inline-block;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    section {
+      padding: 85px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(30px, 5vw, 45px);
+      letter-spacing: -2px;
+      margin-top: 8px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 550px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 27px;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .fact {
+      padding: 15px;
+      border-radius: 13px;
+      background: var(--soft);
+    }
+
+    .fact small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+
+    .fact strong {
+      font-size: 13px;
+    }
+
+    /* PROJECT */
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+
+    .filter-btn {
+      padding: 9px 17px;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .project {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 27px;
+      border-radius: 20px;
+      transition: .3s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+
+    .project-number {
+      color: var(--accent);
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+    }
+
+    .project h3 {
+      margin: 13px 0 8px;
+      font-size: 21px;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: var(--soft);
+      color: var(--text);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    /* EXPERIENCE */
+
+    .timeline {
+      display: grid;
+      gap: 15px;
+    }
+
+    .timeline-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      padding: 22px;
+    }
+
+    .timeline-item h3 {
+      font-size: 17px;
+    }
+
+    .timeline-item .date {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      margin: 5px 0;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* SKILLS */
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 13px 19px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* EDUCATION */
+
+    .education {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .education-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      padding: 23px;
+    }
+
+    .education-card h3 {
+      font-size: 18px;
+      margin: 10px 0 5px;
+    }
+
+    .education-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* CERTIFICATES */
+
+    .certificates {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .certificate {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 22px;
+      border-radius: 16px;
+    }
+
+    .certificate h3 {
+      font-size: 15px;
+      margin: 8px 0;
+    }
+
+    .certificate p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 45px;
+      border-radius: 25px;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(30px, 5vw, 45px);
+      letter-spacing: -2px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    footer {
+      padding: 30px 0;
+      color: var(--muted);
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @media(max-width: 800px) {
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        display: none;
+      }
+
+      .about-grid,
+      .projects,
+      .education,
+      .certificates {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+    }
+
+    @media(max-width: 480px) {
+      .container {
+        width: 92%;
+      }
+
+      .hero {
+        min-height: 500px;
+      }
+
+      .facts {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-box {
+        padding: 25px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+
+    @media print {
+
+      header,
+      .buttons,
+      .filters,
+      footer {
+        display: none;
+      }
+
+      body {
+        background: white;
+        color: black;
+      }
+
+      section {
+        padding: 25px 0;
+        break-inside: avoid;
+      }
+
+      .card,
+      .project,
+      .education-card,
+      .certificate,
+      .timeline-item {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="container">
+      <a href="#home" class="logo">Bianca Annisa</a>
+      <div class="nav-links">
+        <a href="#about">Tentang</a>
+        <a href="#projects">Proyek</a>
+        <a href="#experience">Pengalaman</a>
+        <a href="#education">Pendidikan</a>
+        <a href="#skills">Skill</a>
+        <a href="#certificates">Sertifikat</a>
+      </div>
+
+      <button class="theme-btn" id="themeToggle" aria-label="Ganti tema">☾</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <div class="container">
+      <div class="hero" id="home">
+        <h2>Portofolio | 2026</h2>
+
+        <h1>
+          Halo, aku<br>
+          Bianca Annisa
+        </h1>
+
+        <p>
+          Seorang pelajar SMKN 2 Mojokerto
+          kelas XII jurusan Perangkat Lunak yang memiliki
+          ketertarikan dalam pengembangan website, aplikasi,
+          dan desain antarmuka. Senang mempelajari teknologi
+          baru serta mengembangkan kemampuan melalui berbagai proyek.
+        </p>
+
+        <div class="buttons">
+          <a href="#projects" class="btn primary">Lihat Proyek ↗</a>
+          <a href="#contact" class="btn">Hubungi Saya</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="eyebrow">01 / About Me</div>
+          <h2>Tentang Saya.</h2>
+        </div>
+
+        <div class="about-grid">
+
+          <div class="card">
+            <p class="about-text">
+              Saya merupakan siswi SMK Negeri 2 Mojokerto
+              jurusan Rekayasa Perangkat Lunak (RPL).
+              Memiliki ketertarikan dalam bidang teknologi,
+              khususnya pengembangan website, aplikasi,
+              dan desain UI/UX.
+
+              <br><br>
+
+              Selama menempuh pendidikan, saya telah
+              mempelajari berbagai bahasa pemrograman,
+              framework, serta tools desain. Saya juga
+              memiliki pengalaman organisasi, kegiatan
+              Paskibra, dan Praktik Kerja Lapangan.
+            </p>
+          </div>
+
+          <div class="card facts">
+            <div class="fact">
+              <small>Nama</small>
+              <strong>Bianca Annisa</strong>
+            </div>
+
+            <div class="fact">
+              <small>Jurusan</small>
+              <strong>RPL</strong>
+            </div>
+
+            <div class="fact">
+              <small>Sekolah</small>
+              <strong>SMKN 2 Mojokerto</strong>
+            </div>
+
+            <div class="fact">
+              <small>Bidang</small>
+              <strong>IT & Technology</strong>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="eyebrow">02 / My Works</div>
+          <h2>Proyek Saya.</h2>
+          <p>
+            Beberapa proyek yang pernah saya kerjakan
+            selama proses pembelajaran dan pelatihan.
+          </p>
+        </div>
+
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">Semua</button>
+          <button class="filter-btn" data-filter="design">Design</button>
+          <button class="filter-btn" data-filter="web">Website</button>
+          <button class="filter-btn" data-filter="app">Aplikasi</button>
+        </div>
+
+        <div class="projects">
+
+          <article class="project" data-category="design">
+            <div class="project-number">PROJECT / 01</div>
+            <h3>EkskulHub</h3>
+            <p>
+              Perancangan desain antarmuka aplikasi
+              bertema pengelolaan kegiatan ekstrakurikuler
+              menggunakan Figma.
+            </p>
+            <div class="tags">
+              <span class="tag">Figma</span>
+              <span class="tag">UI/UX</span>
+            </div>
+          </article>
+
+          <article class="project" data-category="web">
+            <div class="project-number">PROJECT / 02</div>
+            <h3>SI-Laundry</h3>
+            <p>
+              Sistem informasi laundry yang dikembangkan
+              sebagai hasil proyek pelatihan Laravel.
+            </p>
+            <div class="tags">
+              <span class="tag">Laravel</span>
+              <span class="tag">PHP</span>
+            </div>
+          </article>
+
+          <article class="project" data-category="app">
+            <div class="project-number">PROJECT / 03</div>
+            <h3>BakarinApp</h3>
+            <p>
+              Proyek aplikasi pemesanan makanan
+              yang dikembangkan menggunakan Kotlin
+              melalui Android Studio.
+            </p>
+            <div class="tags">
+              <span class="tag">Kotlin</span>
+              <span class="tag">Android Studio</span>
+            </div>
+          </article>
+
+          <article class="project" data-category="app">
+            <div class="project-number">PROJECT / 04</div>
+            <h3>CoffeeShop</h3>
+            <p>
+              Proyek pengembangan antarmuka aplikasi
+              Coffee Shop menggunakan Flutter.
+            </p>
+            <div class="tags">
+              <span class="tag">Flutter</span>
+              <span class="tag">Dart</span>
+            </div>
+          </article>
+
+          <article class="project" data-category="web">
+            <div class="project-number">PROJECT / 05</div>
+            <h3>CoffeeSenja</h3>
+            <p>
+              Proyek pengembangan front-end website
+              bertema coffee shop.
+            </p>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </article>
+
+          <article class="project" data-category="design">
+            <div class="project-number">PROJECT / 06</div>
+            <h3>Desain Denah</h3>
+            <p>
+              Proyek desain digital denah
+              Universitas Islam Majapahit menggunakan
+              CorelDRAW.
+            </p>
+            <div class="tags">
+              <span class="tag">CorelDRAW</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="eyebrow">03 / Experience</div>
+          <h2>Pengalaman.</h2>
+        </div>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <h3>Praktik Kerja Lapangan (PKL)</h3>
+            <div class="date">UNIM · 6 Bulan</div>
+            <p>
+              Melaksanakan kegiatan Praktik Kerja Lapangan
+              selama enam bulan di UNIM dengan tugas utama
+              mengoperasikan Microsoft Excel.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>Paskibra</h3>
+            <div class="date">SMKN 2 Mojokerto</div>
+            <p>
+              Mengikuti kegiatan organisasi Paskibra
+              serta berpartisipasi dalam berbagai
+              kompetisi LKBB.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>OSIS</h3>
+            <div class="date">SMPN 2 Gedeg</div>
+            <p>
+              Memiliki pengalaman berorganisasi
+              sebagai anggota OSIS.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>Dewan Penggalang (DP)</h3>
+            <div class="date">SMPN 2 Gedeg</div>
+            <p>
+              Berpartisipasi dalam kegiatan kepramukaan
+              sebagai anggota Dewan Penggalang.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="eyebrow">04 / Education</div>
+          <h2>Riwayat Pendidikan.</h2>
+        </div>
+
+        <div class="education">
+
+          <div class="education-card">
+            <div class="eyebrow">2015 — 2021</div>
+            <h3>SDN Pagerluyung 1</h3>
+            <p>Sekolah Dasar</p>
+          </div>
+
+          <div class="education-card">
+            <div class="eyebrow">2021 — 2024</div>
+            <h3>SMPN 2 Gedeg</h3>
+            <p>Sekolah Menengah Pertama</p>
+          </div>
+
+          <div class="education-card">
+            <div class="eyebrow">2024 — Sekarang</div>
+            <h3>SMKN 2 Mojokerto</h3>
+            <p>
+              Jurusan Rekayasa Perangkat Lunak (RPL).
+              Mempelajari pengembangan website,
+              aplikasi, dan desain digital.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="eyebrow">05 / My Skills</div>
+          <h2>Keahlian Saya.</h2>
+          <p>
+            Kemampuan teknis yang saya pelajari
+            selama pendidikan dan pengalaman PKL.
+          </p>
+        </div>
+
+        <div class="skills">
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">MySQL</span>
+          <span class="skill">PHP</span>
+          <span class="skill">Laravel</span>
+          <span class="skill">Figma</span>
+          <span class="skill">CorelDRAW</span>
+          <span class="skill">Kotlin</span>
+          <span class="skill">Flutter</span>
+          <span class="skill">Microsoft Word</span>
+          <span class="skill">Microsoft Excel</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section id="certificates">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="eyebrow">06 / Achievements</div>
+          <h2>Sertifikat & Prestasi.</h2>
+          <p>
+            Dokumentasi pelatihan, kegiatan,
+            dan pencapaian yang pernah diperoleh.
+          </p>
+        </div>
+
+        <div class="certificates">
+
+          <div class="certificate">
+            <div class="eyebrow">2023 · Pramuka</div>
+            <h3>Peserta Jambore Cabang</h3>
+            <p>Sertifikat peserta Jambore Cabang Pramuka 2023.</p>
+          </div>
+
+          <div class="certificate">
+            <div class="eyebrow">2024 · Pramuka</div>
+            <h3>Pramuka Garuda</h3>
+            <p>Sertifikat Pramuka Garuda Penggalang.</p>
+          </div>
+
+          <div class="certificate">
+            <div class="eyebrow">Pelatihan · RPL</div>
+            <h3>Pelatihan Laravel MinarsihTech</h3>
+            <p>Sertifikat pelatihan Laravel.</p>
+          </div>
+
+          <div class="certificate">
+            <div class="eyebrow">Paskibra · LKBB</div>
+            <h3>Juara Harapan 1 LKBB Arjuna</h3>
+            <p>Pencapaian kompetisi LKBB.</p>
+          </div>
+
+          <div class="certificate">
+            <div class="eyebrow">Paskibra · LKBB</div>
+            <h3>Juara Utama 2 LKBB Antariksa</h3>
+            <p>Pencapaian kompetisi LKBB.</p>
+          </div>
+
+          <div class="certificate">
+            <div class="eyebrow">Paskibra · LKBB</div>
+            <h3>Juara Utama 1 LKBB Serdadu</h3>
+            <p>Pencapaian kompetisi LKBB.</p>
+          </div>
+
+          <div class="certificate">
+            <div class="eyebrow">Paskibra · LKBB</div>
+            <h3>Juara Harapan 2 LKBB Sancaka</h3>
+            <p>Pencapaian kompetisi LKBB.</p>
+          </div>
+
+          <div class="certificate">
+            <div class="eyebrow">TOEIC · 2026</div>
+            <h3>Sertifikat Peserta TOEIC 2026</h3>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+
+        <div class="contact-box">
+          <div class="eyebrow">07 / Contact</div>
+          <h2>Mari terhubung dengan saya!</h2>
+          <p>
+            Terima kasih telah mengunjungi portofolio saya.
+            Jangan ragu untuk menghubungi saya.
+          </p>
+
+          <div class="buttons">
+            <!-- Ganti dengan email milikmu -->
+            <a href="mailto:raihanahbianca@gmail.com" class="btn primary">
+              Email Saya ↗
+            </a>
+
+            <!-- Ganti dengan username GitHub milikmu -->
+            <a href="https://github.com/biancaannisa" target="_blank" rel="noopener noreferrer" class="btn">
+              GitHub ↗
+            </a>
+
+            <a href="https://www.instagram.com/biannisamr_?utm_source=ig_web_button_share_sheet&hvrq=ZDNlZDc0MzIxNw==" 
+            target="_blank" rel="noopener noreferrer" class="btn">
+              biannisamr_ ↗
+            </a>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="container">
+    <span>© <span id="year"></span> Bianca. All Rights Reserved.</span>
+    <a href="#home">Back to Top ↑</a>
+  </footer>
+
+  <script>
+    // DARK MODE
+    const themeToggle = document.getElementById("themeToggle");
+
+    let theme = "light";
+
+    try {
+      theme = localStorage.getItem("bian-theme") || "light";
+    } catch (error) { }
+
+    document.documentElement.dataset.theme =
+      theme === "dark" ? "dark" : "light";
+
+    function updateTheme() {
+      const dark =
+        document.documentElement.dataset.theme === "dark";
+
+      themeToggle.textContent = dark ? "☀" : "☾";
+    }
+
+    updateTheme();
+
+    themeToggle.addEventListener("click", function () {
+      const dark =
+        document.documentElement.dataset.theme === "dark";
+
+      const nextTheme = dark ? "light" : "dark";
+
+      document.documentElement.dataset.theme = nextTheme;
+
+      try {
+        localStorage.setItem("bian-theme", nextTheme);
+      } catch (error) { }
+
+      updateTheme();
+    });
+
+
+    // FILTER PROJECT
+    const filterButtons =
+      document.querySelectorAll(".filter-btn");
+
+    const projectCards =
+      document.querySelectorAll(".project");
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", function () {
+
+        const category = this.dataset.filter;
+
+        filterButtons.forEach(btn => {
+          btn.classList.remove("active");
+        });
+
+        this.classList.add("active");
+
+        projectCards.forEach(project => {
+
+          if (
+            category === "all" ||
+            project.dataset.category === category
+          ) {
+            project.hidden = false;
+          } else {
+            project.hidden = true;
+          }
+
+        });
+
+      });
+    });
+
+
+    // DYNAMIC YEAR
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+  </script>
+
+</body>
+
+</html>
